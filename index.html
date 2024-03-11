@@ -72,7 +72,7 @@
                 return account.username === username && account.password === password;
             });
             if (username === 'admin' && password === 'admin') {
-                return window.location.replace('./Page/Dashboard/dashboard.html');
+                return window.location.replace('./page/DashBoard/dashboard.html');
             }
             // Nếu không tìm thấy tài khoản, hiển thị thông báo lỗi và ngăn chặn form được gửi đi
             if (!foundAccount) {
