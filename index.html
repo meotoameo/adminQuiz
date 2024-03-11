@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập</title>
+
+    <link rel="stylesheet" href="./dist/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="./page/Login/Login.css">
+    <link rel="stylesheet" href="./Assets/gloybal.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="bg-img--left">
+            <img class="img-left" src="./Assets/img/bg_left.png" alt="">
+        </div>
+        <div class="login-container">
+            <div class="logo-login">
+                <img src="./Assets/img/logo_ptit.png" alt="">
+            </div>
+            <header class="header-login">
+                <span>Đăng nhập</span>
+                <span class="title-login">PTIT_QUIZ</span>
+            </header>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="username">Tài khoản:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Mật khẩu:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="checkbock-and-forgot-password">
+                    <div class="checkbox__login">
+                        <input type="checkbox" value="1" name="remember" id="login__checkbox">
+                        <label class="cb__label" for="login__checkbox">Ghi nhớ</label>
+                    </div>
+
+
+                </div>
+                <div class="transfer">
+                </div>
+                <button onclick="login(event)" type="submit">Đăng nhập</button>
+            </form>
+        </div>
+        <div class="bg-img--right">
+            <img class="img-right" src="./Assets/img/bg_right.png" alt="">
+        </div>
+
+    </div>
+    <script>
+        // Hàm để kiểm tra thông tin đăng nhập
+        function login(event) {
+            event.preventDefault()
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            // Lấy mảng accounts từ local storage (nếu có)
+            var accounts = JSON.parse(localStorage.getItem('accounts')) || [];
+
+            // Tìm kiếm trong mảng tài khoản
+            var foundAccount = accounts.find(function (account) {
+                return account.username === username && account.password === password;
+            });
+            if (username === 'admin' && password === 'admin') {
+                return window.location.replace('./Page/Dashboard/dashboard.html');
+            }
+            // Nếu không tìm thấy tài khoản, hiển thị thông báo lỗi và ngăn chặn form được gửi đi
+            if (!foundAccount) {
+                alert("Tài khoản hoặc mật khẩu không đúng.");
+                return false; // Ngăn chặn form được gửi đi
+            }
+            console.log(1)
+            // Nếu tìm thấy tài khoản, cho phép form được gửi đi
+            return window.location.replace('./Page/Dashboard/dashboard.html');
+        }
+    </script>
+</body>
+
+</html>

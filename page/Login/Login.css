@@ -1,0 +1,125 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+
+h2 {
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #bb2019;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+button:hover {}
+
+.transfer {
+    text-align: right;
+    padding-bottom: 15px;
+}
+
+.wrapper {
+    height: 100%;
+    position: relative;
+}
+
+.login-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 336.79px;
+    max-width: 400px;
+    background-color: #fff;
+    padding: 29px 35px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.bg-img--left {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 507.2px;
+}
+
+.bg-img--right {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 42.5%;
+}
+
+
+
+.logo-login {
+    text-align: center;
+}
+
+.img-left {
+    width: 100%;
+}
+
+.img-right {
+    width: 100%;
+}
+
+.header-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title-login {
+    font-weight: 600;
+}
+
+input:focus {
+    border-left: 5px solid #bb2019;
+}
+
+.checkbox__login {
+    display: flex;
+    align-items: center;
+}
+
+.checkbock-and-forgot-password {
+    display: flex;
+    justify-content: space-between;
+}
+
+.login__main__forgetpass {
+    color: var(--primary);
+}
+
+#login-form {
+    font-size: 13px;
+
+}
