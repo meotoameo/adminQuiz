@@ -10,6 +10,8 @@
   <!-- Bootstrap 3.3.6 -->
   <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
   <!-- Font Awesome -->
+  <link rel="stylesheet" href="../../Assets/_all-skins.min.css">
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
@@ -204,18 +206,12 @@
         <ul class="sidebar-menu">
           <li class="header">QUẢN LÝ</li>
           <li class="treeview ">
-            <a href="#">
+            <a href="../DashBoard/dashboard.html">
               <i class="fa fa-pie-chart"></i>
               <span>Thống kê</span>
-              <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
+
             </a>
-            <ul class="treeview-menu">
-              <li><a href="../DashBoard/dashboard.html"><i class="fa fa-circle-o"></i> Tất cả</a></li>
-              <li><a href="chartjs.html"><i class="fa fa-circle-o"></i> Tỷ lệ tham gia</a></li>
-              <li><a href="morris.html"><i class="fa fa-circle-o"></i> Phổ điểm</a></li>
-            </ul>
+
           </li>
           <li class="treeview ">
             <a href="#">
@@ -285,12 +281,18 @@
             </h2>
 
             <div class="main-content">
-              <form action="" class="ques__nav__form" id="search-form">
-                <input class="search" type="text" name="s" id="" placeholder="Tìm kiếm">
-                <button class="icon-search" type="submit">
-                  <i class="fa-solid fa-magnifying-glass"></i>
-                </button>
-              </form>
+              <div class="header-main-content">
+                <form action="" class="ques__nav__form" id="search-form">
+                  <input class="search" type="text" name="s" id="" placeholder="Tìm kiếm">
+                  <button class="icon-search" type="submit">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                  </button>
+                </form>
+                <div class="add-sv">
+                  <span onclick="DisplayPopUp('add-new-student')">Thêm mới <i class="fa-solid fa-plus"></i></span>
+                </div>
+              </div>
+
 
               <table id="example2" class="table-data-main">
                 <thead>
@@ -563,31 +565,31 @@
               </div>
               <div class="form-question">
                 <div class="question">Câu 6: Câu trả lời là gì ?</div>
-                <div class="answer yes selected">Đáp án 1</div>
+                <div class="answer yes ">Đáp án 1</div>
                 <div class="answer no">Đáp án 2</div>
-                <div class="answer no selected">Đáp án 3</div>
+                <div class="answer no ">Đáp án 3</div>
                 <div class="answer no">Đáp án 4</div>
 
               </div>
               <div class="form-question">
                 <div class="question">Câu 7: Câu trả lời là gì ?</div>
-                <div class="answer yes selected">Đáp án 1</div>
+                <div class="answer yes ">Đáp án 1</div>
                 <div class="answer no">Đáp án 2</div>
                 <div class="answer no">Đáp án 3</div>
-                <div class="answer no selected">Đáp án 4</div>
+                <div class="answer no ">Đáp án 4</div>
 
               </div>
               <div class="form-question">
                 <div class="question">Câu 8: Câu trả lời là gì ? </div>
-                <div class="answer yes selected">Đáp án 1</div>
+                <div class="answer yes ">Đáp án 1</div>
                 <div class="answer no">Đáp án 2</div>
                 <div class="answer no">Đáp án 3</div>
-                <div class="answer no selected">Đáp án 4</div>
+                <div class="answer no ">Đáp án 4</div>
 
               </div>
               <div class="form-question">
                 <div class="question">Câu 9: Câu trả lời là gì ?</div>
-                <div class="answer yes selected">Đáp án 1</div>
+                <div class="answer yes ">Đáp án 1</div>
                 <div class="answer no">Đáp án 2</div>
                 <div class="answer no">Đáp án 3</div>
                 <div class="answer no selected">Đáp án 4</div>
@@ -595,7 +597,7 @@
               </div>
               <div class="form-question">
                 <div class="question">Câu 10</div>
-                <div class="answer yes selected">Đáp án 1</div>
+                <div class="answer yes ">Đáp án 1</div>
                 <div class="answer no">Đáp án 2</div>
                 <div class="answer no">Đáp án 3</div>
                 <div class="answer no selected">Đáp án 4</div>

@@ -203,10 +203,13 @@
 }
 
 .header-content {
-    padding: 15px;
+    padding-bottom: 10px;
+    font-size: 25px;
+    margin: 0;
 }
 
 .wrapper-content {
+    position: relative;
     background-color: #ecf0f5;
 
 }
@@ -308,6 +311,17 @@ input:focus-visible {
     font-size: 12px;
 }
 
+select option {
+    background-color: #fff;
+    /* Màu nền */
+    color: #333;
+    /* Màu chữ */
+    padding: 8px 12px;
+    /* Khoảng cách bên trong */
+    border: none;
+    /* Loại bỏ viền */
+}
+
 .access {
     background-color: #01ad18;
 }
@@ -315,4 +329,31 @@ input:focus-visible {
 .empty {
     color: #b3b3b3;
     cursor: default;
+}
+
+.note3 {
+    background-color: #6495ED;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.note4 {
+    background-color: #40E0D0;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.btn-pdf {
+    background-color: #e84b43;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    position: absolute;
+    bottom: 100px;
+    left: 300px;
 }

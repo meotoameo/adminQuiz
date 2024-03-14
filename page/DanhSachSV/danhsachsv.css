@@ -589,6 +589,25 @@ p {
     background-color: #ff6a6a;
 }
 
+.header-main-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.add-sv span {
+    margin-top: 4px;
+    cursor: pointer;
+    background-color: #01ad18;
+    padding: 8px 15px;
+    color: #fff;
+    border-radius: 4px;
+}
+
+.add-sv span:hover {
+    color: #000;
+}
+
 .footer-pdf {
     margin: 5px;
 }

@@ -74,7 +74,7 @@ function renderData(data) {
 const searchInput = document.querySelector('.search')
 function searchExamsByName(examData, searchTerm) {
     searchTerm = searchTerm.toLowerCase(); // Chuyển đổi searchTerm về chữ thường để tìm kiếm không phân biệt chữ hoa chữ thường
-    return examData.filter(exam => exam.name.toLowerCase().includes(searchTerm));
+    return examData.filter(exam => exam.TenBaiThi.toLowerCase().includes(searchTerm));
 }
 function handleSearch() {
     const searchTerm = searchInput.value.trim();
@@ -93,7 +93,9 @@ function handleSearch() {
     }
 }
 
-
+document.querySelector('#search-form').addEventListener('submit', function (event) {
+    event.preventDefault()
+});
 searchInput.addEventListener('keydown', function (event) {
     if (event.key === 'Enter') {
         // Gọi hàm xử lý tìm kiếm khi nhấn Enter

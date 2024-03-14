@@ -1,7 +1,7 @@
 const examData = [
     {
         STT: 1,
-        TenSinhVien: "Sinh Vien 000",
+        TenSinhVien: "Nguyen Van A",
         MaSV: "B21DCCN000",
         KyThi: "Ki 1",
         Mon: "Toan",
@@ -9,7 +9,7 @@ const examData = [
     },
     {
         STT: 2,
-        TenSinhVien: "Sinh Vien 001",
+        TenSinhVien: "Le Van B",
         MaSV: "B21DCCN001",
         KyThi: "Ki 1",
         Mon: "Van",
@@ -17,7 +17,7 @@ const examData = [
     },
     {
         STT: 3,
-        TenSinhVien: "Sinh Vien 002",
+        TenSinhVien: "Tran Van C",
         MaSV: "B21DCCN002",
         KyThi: "Ki 2",
         Mon: "Anh",
@@ -25,7 +25,7 @@ const examData = [
     },
     {
         STT: 4,
-        TenSinhVien: "Sinh Vien 003",
+        TenSinhVien: "Nguyen Thi D",
         MaSV: "B21DCCN003",
         KyThi: "Ki 2",
         Mon: "Ly",
@@ -33,7 +33,7 @@ const examData = [
     },
     {
         STT: 5,
-        TenSinhVien: "Sinh Vien 004",
+        TenSinhVien: "Phung Chi E",
         MaSV: "B21DCCN004",
         KyThi: "Ki 1",
         Mon: "Hoa",
@@ -41,10 +41,10 @@ const examData = [
     },
     {
         STT: 6,
-        TenSinhVien: "Sinh Vien 005",
+        TenSinhVien: "Le Thi G",
         MaSV: "B21DCCN005",
         KyThi: "Ki 1",
-        Mon: "Sinh Hoc",
+        Mon: "Sinh",
         Diem: 5,
     },
     {
@@ -52,7 +52,7 @@ const examData = [
         TenSinhVien: "Sinh Vien 006",
         MaSV: "B21DCCN006",
         KyThi: "Ki 1",
-        Mon: "Lich Su",
+        Mon: "Toan",
         Diem: 8,
     },
     {
@@ -60,7 +60,7 @@ const examData = [
         TenSinhVien: "Sinh Vien 007",
         MaSV: "B21DCCN007",
         KyThi: "Ki 1",
-        Mon: "Dia Ly",
+        Mon: "Van",
         Diem: 7,
     },
     {
@@ -68,15 +68,15 @@ const examData = [
         TenSinhVien: "Sinh Vien 008",
         MaSV: "B21DCCN008",
         KyThi: "Ki 1",
-        Mon: "Cong Nghe Thong Tin",
+        Mon: "Anh",
         Diem: 10,
     },
     {
         STT: 10,
         TenSinhVien: "Sinh Vien 009",
         MaSV: "B21DCCN009",
-        KyThi: "Ki 1",
-        Mon: "Quoc Te Hoa",
+        KyThi: "Ki 2",
+        Mon: "Toan",
         Diem: 1,
     },
 ];
@@ -107,12 +107,12 @@ function renderData(data) {
 const searchInput = document.querySelector('.search');
 const searchForm = document.querySelector('#search-form');
 const searchSelect = document.querySelector('#search');
+const subjectSelect = document.querySelector('#search2');
 
-function searchExams(examData, searchTerm, filterBy) {
+function searchExams(examData, searchTerm) {
     searchTerm = searchTerm.toLowerCase();
     return examData.filter(exam => {
-        const fieldValue = exam[filterBy].toLowerCase();
-        return fieldValue.includes(searchTerm);
+        return exam.TenSinhVien.toLowerCase().includes(searchTerm) || exam.MaSV.toLowerCase().includes(searchTerm)
     });
 }
 
@@ -120,14 +120,9 @@ function searchExams(examData, searchTerm, filterBy) {
 
 function handleSearch() {
     const searchTerm = searchInput.value.trim();
-    const filterBy = searchSelect.value;
-    if(filterBy === 'all')
-    {
-        renderData(examData)
-    }
     // Kiểm tra xem ô input có dữ liệu không
     if (searchTerm !== '') {
-        const filteredExams = searchExams(examData, searchTerm, filterBy);
+        const filteredExams = searchExams(examData, searchTerm);
         renderData(filteredExams);
 
         // Reset giá trị của ô input
@@ -141,10 +136,21 @@ searchForm.addEventListener('submit', function (event) {
 });
 
 // Thêm sự kiện lắng nghe cho sự thay đổi giá trị trong dropdown
-searchSelect.addEventListener('change', function () {
-    // Nếu giá trị dropdown thay đổi, thực hiện tìm kiếm lại
-    handleSearch();
-});
+// Lắng nghe sự kiện change cho cả hai ô select
+searchSelect.addEventListener('change', filterData);
+subjectSelect.addEventListener('change', filterData);
+
+function filterData() {
+    const selectedValue = searchSelect.value;
+    const selectedSubject = subjectSelect.value;
+
+    const filteredData = examData.filter((item) => {
+        return (selectedValue === "all" || item.KyThi === selectedValue) &&
+            (selectedSubject === "all" || item.Mon === selectedSubject);
+    });
+
+    renderData(filteredData);
+}
 
 
 
@@ -154,4 +160,21 @@ searchInput.addEventListener('keydown', function (event) {
         handleSearch();
     }
 });
+
+
+function exportToPDF() {
+    const element = document.getElementById("pdf");
+    console.log(element);
+    const options = {
+        margin: 0,
+        filename: 'exported-document.pdf',
+        image: { type: 'jpeg', quality: 0.8 },
+        html2canvas: { scale: 1 },
+        jsPDF: { unit: 'mm', format: 'a3', orientation: 'landscape' }
+    };
+
+    html2pdf(element, options);
+}
+
+
 renderData(examData);

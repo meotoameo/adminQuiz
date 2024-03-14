@@ -14,6 +14,7 @@
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Theme style -->
+  <link rel="stylesheet" href="../../Assets/_all-skins.min.css">
   <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
@@ -203,18 +204,12 @@
         <ul class="sidebar-menu">
           <li class="header">QUẢN LÝ</li>
           <li class="treeview ">
-            <a href="#">
+            <a href="../DashBoard/dashboard.html">
               <i class="fa fa-pie-chart"></i>
               <span>Thống kê</span>
-              <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
+
             </a>
-            <ul class="treeview-menu">
-              <li><a href="../DashBoard/dashboard.html"><i class="fa fa-circle-o"></i> Tất cả</a></li>
-              <li><a href="chartjs.html"><i class="fa fa-circle-o"></i> Tỷ lệ tham gia</a></li>
-              <li><a href="morris.html"><i class="fa fa-circle-o"></i> Phổ điểm</a></li>
-            </ul>
+
           </li>
           <li class="treeview active">
             <a href="#">
@@ -224,7 +219,7 @@
               </span>
             </a>
             <ul class="treeview-menu">
-              <li class="active"><a href="../../index2.html"><i class="fa fa-circle-o"></i> Danh sách kỳ thi</a></li>
+              <li class="active"><a href="#"><i class="fa fa-circle-o"></i> Danh sách kỳ thi</a></li>
               <li onclick="DisplayPopUp('add-exam')"><a href="#"><i class="fa fa-circle-o"></i> Tạo mới</a></li>
             </ul>
           </li>
@@ -285,12 +280,17 @@
             </h2>
 
             <div class="main-content">
-              <form action="" class="ques__nav__form">
-                <input class="search" type="text" name="s" id="" placeholder="Tìm kiếm">
-                <button class="icon-search" type="submit">
-                  <i class="fa-solid fa-magnifying-glass"></i>
-                </button>
-              </form>
+              <div class="header-main-content">
+                <form action="" class="ques__nav__form" id="search-form">
+                  <input class="search" type="text" name="s" id="" placeholder="Tìm kiếm">
+                  <button class="icon-search" type="submit">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                  </button>
+                </form>
+                <div class="add-sv">
+                  <span onclick="DisplayPopUp('add-exam')">Thêm mới <i class="fa-solid fa-plus"></i></span>
+                </div>
+              </div>
               <table id="example2" class="table-data-main">
                 <thead>
                   <tr>
@@ -303,7 +303,6 @@
 
                     <th>Sửa</th>
                     <th>Xóa</th>
-
                   </tr>
                 </thead>
                 <tbody class="table-body">
@@ -356,7 +355,7 @@
               <input onchange="handleFile()" type="file" id="excelFileInput" name="excelFile" accept=".xls,.xlsx">
             </div>
             <div class="footer-info-exam">
-              <button>Lưu</button>
+              <button onclick="closePopUp('add-exam')">Lưu</button>
             </div>
           </div>
           <div class="exam-right">

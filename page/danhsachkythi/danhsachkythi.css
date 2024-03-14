@@ -313,6 +313,10 @@ th {
     cursor: default;
 }
 
+.normal {
+    background-color: rgb(78 192 233);
+
+}
 
 .add-exam {
     display: none;
@@ -323,7 +327,33 @@ th {
     width: 100vw;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.5);
-    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        transform: scale(0);
+        /* Bắt đầu với kích thước 0 */
+        opacity: 0;
+        /* Bắt đầu với opacity 0 */
+    }
+
+    to {
+        transform: scale(1);
+        /* Kết thúc với kích thước 1 (bình thường) */
+        opacity: 1;
+        /* Kết thúc với opacity 1 (bình thường) */
+    }
+}
+
+/* Hiệu ứng xuất hiện */
+@keyframes slideIn {
+    from {
+        top: -50px;
+    }
+
+    to {
+        top: 0;
+    }
 }
 
 .exam-right {
@@ -364,6 +394,8 @@ th {
     background-color: #fffbfb;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.1s ease-in-out;
+
 }
 
 .info-exam h3 {
@@ -478,4 +510,51 @@ th {
     color: #fff;
     cursor: pointer;
     border-radius: 50%;
+}
+
+.header-main-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.add-sv span {
+    margin-top: 4px;
+    cursor: pointer;
+    background-color: #01ad18;
+    padding: 8px 15px;
+    color: #fff;
+    border-radius: 4px;
+}
+
+.add-sv span:hover {
+    color: #000;
+}
+
+/* Thiết lập font và kích thước chữ */
+input[type="date"] {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+/* Thiết lập viền và màu nền */
+input[type="date"] {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    padding: 0px 8px;
+    margin-left: 5px;
+    /* Tùy chỉnh giảm độ rộng của input để tránh hiện thị dữ liệu ngày tháng quá rộng */
+}
+
+/* Thiết lập màu chữ */
+input[type="date"] {
+    color: #333;
+}
+
+/* Thiết lập hover và focus style */
+input[type="date"]:hover,
+input[type="date"]:focus {
+    border-color: #f56954;
+    outline: 0;
 }

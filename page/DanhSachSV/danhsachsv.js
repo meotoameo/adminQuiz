@@ -92,7 +92,7 @@ function renderData(data) {
             <td>${exam.GioiTinh}</td>
 
             <td style="text-align: center;">
-            <span onclick="DisplayPopUp('result-student')"   class="btn normal"><i class="fa-regular fa-eye"></i></span>
+            <span onclick="DisplayPopUp('result-student')"   class="btn normal"><i class="fa-brands fa-wpforms"></i></span>
 
             
             <span onclick="DisplayPopUp('edit-student')" class="btn access"><i class="fa-solid fa-pen"></i></span>
